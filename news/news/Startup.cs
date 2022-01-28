@@ -30,7 +30,7 @@ namespace news
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"))); 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<newsContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("newsConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
