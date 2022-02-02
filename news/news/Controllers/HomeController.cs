@@ -40,6 +40,14 @@ namespace news.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult SaveContact(contactUs contact)
+        {
+            db.contacts.Add(contact);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
