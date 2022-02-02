@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<category>
 <section id="featured-services" class="featured-services">
     <div class="container aos-init aos-animate" data-aos="fade-up">
 
@@ -15,8 +16,6 @@
                         <p class="description">@item.DISCRIPTION</p>
                     </div>
                 </div>
-
-               
 
             }
         </div>
