@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using news.Data;
 using news.Models;
 using System;
 using System.Collections.Generic;
@@ -12,18 +13,25 @@ namespace news.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        newsContext db;
+        public HomeController(ILogger<HomeController> logger, newsContext newsContext)
         {
             _logger = logger;
+            db = newsContext;
         }
-
+       
+     
         public IActionResult Index()
         {
-            return View();
+            var categories = db.categories.ToList();
+            return View(categories);
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult about()
         {
             return View();
         }
